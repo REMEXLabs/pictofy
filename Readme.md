@@ -4,16 +4,19 @@ This plugin enables pictogram support on your page.
 
 ## Getting started
 
-Include at least jQuery 2 and the [res Plugin](https://github.com/AlexVonB/res)
-before the pictofy library:
+Include at least jQuery 2, the [res Plugin](https://github.com/AlexVonB/res)
+and [Tooltipster](https://iamceege.github.io/tooltipster/) before the pictofy
+library:
 
 ```html
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="jquery.res.js"></script>
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/js/jquery.tooltipster.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/css/tooltipster.min.css">
-<link rel="stylesheet" href="css/pictofy.css">
+
 <script src="jquery.pictofy.js"></script>
+<link rel="stylesheet" href="css/pictofy.css">
 ```
 
 Additionally upload the two images in the img-folder. You might want to change
