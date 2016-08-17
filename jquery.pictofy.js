@@ -47,7 +47,7 @@
         $e.replaceWith(result.join(""));
       } else {
         // If elem is no TextNode, descend further
-        descend($e, opts);
+        descend($e.not('.'+opts.class), opts);
       }
     });
   }
