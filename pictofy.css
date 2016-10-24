@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-.picto-tooltip {
+.picto-tooltip[data-picto-src] {
 	cursor: help;
+  text-decoration: underline red;
 }
 
-.picto-tooltip:hover {
-	background-color: gray;
+.picto-tooltip[data-picto-src]:hover {
+	text-decoration: none;
 }
 
 .tooltipster-picto {
