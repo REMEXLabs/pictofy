@@ -201,9 +201,8 @@
   $.fn.pictofy.destroy = function(options) {
     var opts = $.extend({}, $.fn.pictofy.defaults, options);
 
-    $('.' + opts.class)
-      .tooltipster('destroy')
-      .each(function(idx, el) {
+    $('.' + opts.class + '[data-picto-src]').tooltipster('destroy');
+    $('.' + opts.class).each(function(idx, el) {
         $(el).replaceWith($(el).html());
       });
   };
