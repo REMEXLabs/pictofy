@@ -214,8 +214,7 @@
     },
     lang: 'en',
     class: 'picto-tooltip',
-    preContent: $('<div style="height:200px;width:200px;">&nbsp;</div>'),
-    failContent: ':('
+    preContent: $('<div style="height:200px;width:200px;">&nbsp;</div>')
   };
 
 })(jQuery);
