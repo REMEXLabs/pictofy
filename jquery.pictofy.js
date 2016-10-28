@@ -127,6 +127,24 @@
   }
 
   /**
+   * Create a hash map of type string -> List of DOM-Element which maps all
+   * spans to their words
+   * @param {Object} opts Plugin options
+   * @return {List of DOM-Elements} Map containing all words with their DOMs
+   */
+  function createWordMap(opts) {
+    var ret = {};
+    $('.' + opts.class).each(function(idx, el) {
+      var word = el.innerHTML.toLowerCase().trim();
+      if (!(word in ret)) {
+        ret[word] = [];
+      }
+      ret[word].push($(el));
+    });
+    return ret;
+  }
+
+  /**
    * In all selected elements, turn on picsupport
    */
   $.fn.pictofy = function(options) {
@@ -135,11 +153,11 @@
 
     descend(this, opts);
 
+    var wordMap = createWordMap(opts);
+
     var $res = $.res(opts.resUrl);
 
-    $('.' + opts.class).each(function(idx, el) {
-      // Remove and spaces
-      var word = el.innerHTML.toLowerCase().trim();
+    Object.keys(wordMap).forEach(function(word) {
       var lang = (typeof AS_picsupport === undefined) ? opts.lang :
           AS_picsupport.language || opts.lang;
 
@@ -161,27 +179,30 @@
                 return prop.name === 'http://openurc.org/ns/res#name';
               })
               .value;
-            $(el).attr('data-picto-src', src);
-            $(el).attr('data-picto-name', name);
 
-            $(el).tooltipster({
-              updateAnimation: null,
-              trigger: 'click',
-              theme: 'tooltipster-picto',
-              onlyOne: true,
-              interactive: true,
-              content: opts.preContent,
-              functionReady: function(origin) {
+            wordMap[word].forEach(function(el){
+              $(el).attr('data-picto-src', src);
+              $(el).attr('data-picto-name', name);
 
-                var $container = $('<div>')
-                    .addClass('picto-container');
+              $(el).tooltipster({
+                updateAnimation: null,
+                trigger: 'click',
+                theme: 'tooltipster-picto',
+                onlyOne: true,
+                interactive: true,
+                content: opts.preContent,
+                functionReady: function(origin) {
 
-                $container.append($('<img>').attr('src', src));
-                origin.tooltipster('content', $container);
-                appendStars(name, origin, opts);
+                  var $container = $('<div>')
+                      .addClass('picto-container');
 
-                return true;
-              }
+                  $container.append($('<img>').attr('src', src));
+                  origin.tooltipster('content', $container);
+                  appendStars(name, origin, opts);
+
+                  return true;
+                }
+              });
             });
           }
         })
