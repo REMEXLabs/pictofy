@@ -33,7 +33,8 @@ var options = {
   },
   lang: 'en',
   class: 'picto-tooltip',
-  preContent: $('<div style="height:200px;width:200px;">&nbsp;</div>')
+  preContent: $('<div style="height:200px;width:200px;">&nbsp;</div>'),
+  trigger: 'click'
 };
 
 $('p, h1, h2, ul').not('[data-picto="ignore"]').pictofy(options);
