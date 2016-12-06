@@ -187,6 +187,7 @@
               $(el).tooltipster({
                 updateAnimation: null,
                 trigger: opts.trigger,
+                delay: opts.delay,
                 theme: 'tooltipster-picto',
                 onlyOne: true,
                 interactive: true,
@@ -236,7 +237,8 @@
     lang: 'en',
     class: 'picto-tooltip',
     preContent: $('<div style="height:200px;width:200px;">&nbsp;</div>'),
-    trigger: 'click'
+    trigger: 'click',
+    delay: 300
   };
 
 })(jQuery);

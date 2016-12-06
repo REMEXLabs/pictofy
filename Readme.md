@@ -34,7 +34,8 @@ var options = {
   lang: 'en',
   class: 'picto-tooltip',
   preContent: $('<div style="height:200px;width:200px;">&nbsp;</div>'),
-  trigger: 'click'
+  trigger: 'click', // click, hover
+  delay: 300        // delay in ms after hover trigger triggers
 };
 
 $('p, h1, h2, ul').not('[data-picto="ignore"]').pictofy(options);
