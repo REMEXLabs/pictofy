@@ -1,6 +1,6 @@
 # pictofy
 
-This plugin enables pictogram support on your page.
+This plugin enables pictogram support on a web page.
 
 ## Getting started
 
@@ -45,7 +45,7 @@ $('p, h1, h2, ul').not('[data-picto="ignore"]').pictofy(options);
 
 Copyright 2016 Hochschule der Medien (HdM) / Stuttgart Media University
 
-Licensed under the Apache License, Version 2.0 (the "License");
+Licensed under the [Apache License, Version 2.0](https://github.com/REMEXLabs/pictofy/blob/master/LICENSE) (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
